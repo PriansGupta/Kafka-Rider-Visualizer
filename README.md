@@ -1,5 +1,5 @@
 Markdown
-# 🏍️ Kafka Rider Visualizer (Kafka Eats Delivery)
+# 🏍️ Kafka Rider Visualizer 
 
 A production-grade, event-driven microservices architecture simulating a live food delivery system. This project demonstrates how **Apache Kafka** orchestrates asynchronous event communication among independent services, paired with a **React + WebSockets** frontend for real-time spatial simulation and system telemetry.
 
