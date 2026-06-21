@@ -1,0 +1,283 @@
+/* App.css */
+.app-wrapper {
+  min-height: 100vh;
+  background-color: #111827;
+  color: white;
+  padding: 2rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.main-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Header Section */
+.header-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1f2937;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #374151;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.header-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  /* Gradient text effect */
+  background: linear-gradient(to right, #4ade80, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-subtitle {
+  color: #9ca3af;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.btn-place-order {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #22c55e;
+  color: #111827;
+}
+
+.btn-place-order:hover:not(:disabled) {
+  background-color: #4ade80;
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.25);
+}
+
+.btn-place-order:disabled {
+  background-color: #374151;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+/* Main Grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .content-grid {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Map Card */
+.map-card {
+  background-color: #1f2937;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #374151;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.map-header h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin: 0;
+}
+
+.order-id {
+  color: #4ade80;
+  font-family: monospace;
+  margin-top: 0.25rem;
+}
+
+.eta-display {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #34d399;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+/* The Interactive Track */
+.track-container {
+  position: relative;
+  padding: 2.5rem 1rem;
+}
+
+.track-bg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 0.5rem;
+  background-color: #374151;
+  border-radius: 9999px;
+  transform: translateY(-50%);
+}
+
+.track-progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 0.5rem;
+  background-color: #22c55e;
+  border-radius: 9999px;
+  transform: translateY(-50%);
+  transition: width 1s linear;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.5);
+}
+
+.waypoint {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #1f2937;
+  padding: 0.75rem;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.waypoint-start {
+  left: 0;
+  border: 2px solid #4b5563;
+}
+
+.waypoint-end {
+  right: 0;
+  border: 2px solid #22c55e;
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+}
+
+.rider-marker {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: -1.5rem; /* Center the icon perfectly */
+  background-color: #10b981;
+  padding: 0.75rem;
+  border-radius: 50%;
+  z-index: 20;
+  transition: left 1s linear;
+  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rider-icon-rotate {
+  transform: rotate(90deg);
+  color: #111827;
+}
+
+.location-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #9ca3af;
+  padding: 0 1rem;
+}
+
+.success-banner {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #4ade80;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Logs Box */
+.logs-card {
+  background-color: #1f2937;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #374151;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.logs-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logs-window {
+  background-color: #111827;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  flex: 1;
+  font-family: monospace;
+  font-size: 0.75rem;
+  overflow-y: auto;
+  height: 16rem;
+  border: 1px solid rgba(55, 65, 81, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.log-entry {
+  color: #9ca3af;
+}
+.log-success {
+  color: #4ade80;
+}
+.log-empty {
+  color: #4b5563;
+  font-style: italic;
+}
