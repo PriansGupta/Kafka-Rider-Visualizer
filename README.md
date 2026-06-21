@@ -97,11 +97,3 @@ UI Service: Broadcasts data structures down to the WebSocket pipeline.
 React Dashboard: The bike marker progresses linearly down the vector map, changing the active countdown timestamp.
 
 Payment Service: Remains completely silent until Step 10 hits (DELIVERED), instantly firing an alert confirming rider payout processing and transactional completion.
-
-
-
-
-<video src="https://github.com/user-attachments/assets/b223fd8b-87df-4145-8bfb-ff75400b9f72" controls="controls" muted="muted" style="max-width: 100%; height: auto;"></video>
-
-
-
