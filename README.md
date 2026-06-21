@@ -9,29 +9,7 @@ A production-grade, event-driven microservices architecture simulating a live fo
 
 The system consists of an independent event broker, four backend services/consumers, and a modern single-page frontend:
 
-                    +---------------------------------------+
-                    |        Docker: Apache Kafka           |
-                    |      Topic: `delivery-events`         |
-                    +---------------------------------------+
-                               ▲                │
-    (1) Trigger Simulation     │                │ (3) Multi-Group Fan-Out
-+-------------------------------+                v
-│                                     +----------------------+
-│  +------------------------+         |   Distance Service   | -> Calculates ETA
-│  |  Rider Producer API    |         |  (Group: distance)   |    (IN_TRANSIT)
-│  |      (Port 3001)       |         +----------------------+
-│  +------------------------+         |   Payment Service    | -> Processes Payouts
-│                                     |  (Group: payment)    |    (DELIVERED)
-▼                                     +----------------------+
-+--------------------+                   |  UI Updater Service  |
-|    React Client    |                   |  (Group: ui-updater) |
-|    (Vite Dev)      |                   +----------------------+
-+--------------------+                              │
-▲                                                │ (4) Broadcast Updates
-└────────────────── WebSocket (Port 8080) ───────┘
-(2) Real-Time Visual State Updates
-
-
+          
 1. **Frontend Request**: The React user interface issues an HTTP `POST` request to the Producer API to place a simulated delivery order.
 2. **Event Production**: The **Rider Producer** generates an order ID and simulates the courier moving on a step-by-step vector trajectory. It publishes tracking events into the `delivery-events` Kafka topic every 3 seconds.
 3. **Decoupled Processing**: Kafka handles high-throughput message storage and streams updates out concurrently using distinct **Consumer Groups**:
